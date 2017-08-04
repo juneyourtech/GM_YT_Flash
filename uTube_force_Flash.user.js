@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name          uTube Force Flash
 // @namespace     YT_flash_force
-// @description   Force Flash player embed. Video settings available from the User Script Commands submenu. Note, that the code might be buggy, and might cause conflicts with Flashblock. Acknowledgements to Alexander Nartov for providing the initial code, and to Victor Desfe and JAOOTPYKHA for improvements to it. This userscript requires that HTML5 playback be switched off in about:config
+// @description   Force Flash player embed. Video settings are at the User Script Commands toolbar button submenu. If Flash does not load outright, reload the page. Note, that the code might be buggy, and can cause conflicts with Flashblock. Acknowledgements to Alexander Nartov for providing the initial code, and to Victor Desfe and JAOOTPYKHA for improvements to it. This userscript requires that HTML5 playback be switched off in about:config . | Flash is a registered trademark of Adobe; YouTube that of Alphabet.
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.3.4.3
+// @version       0.3.4.4
 // @encoding      utf-8
 // @homepage      https://github.com/juneyourtech/GM_YT_Flash
 // @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
