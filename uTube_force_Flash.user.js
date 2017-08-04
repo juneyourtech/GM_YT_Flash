@@ -5,8 +5,10 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.3.4.2
+// @version       0.3.4.3
 // @encoding      utf-8
+// @homepage      https://github.com/juneyourtech/GM_YT_Flash
+// @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
 // @include       *.youtube.com/watch*
 // @grant         GM_addStyle
 // @grant         GM_getValue
@@ -19,8 +21,9 @@
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
 /* ____80_character_separator________________________________________________ */
 
-/* 28.07.2017: Code to enable Flash Player, with huge thanks to Alexander Nartov 
-   for the bulk of the code, and Victor Desfe for the showinfo/autoplay line.
+/* 28.07.2017: Code to enable Flash Player, with huge thanks to 
+   Alexander Nartov for the bulk of the code, and Victor Desfe for the 
+   showinfo/autoplay line.
    Additional credits: JAOOTPYKHA for fixing height/width issues. 
    • Errata: Make sure you have HTML5 switched off for this to work. */
 
@@ -75,15 +78,16 @@ window.setTimeout(function() {
    var embedFrame = document.createElement("iframe");
    
    embedFrame.src = location.href.replace(/watch\?(?:.*)v=([A-Za-z0-9_-]{11}).*/, "embed/$1");
-/* The first inner parentheses group is a non-capturing group, and is not included in '$1'.
-   The first group is in place to match stringdata after '\?' and before 'v=', if there is any.
- • The second parentheses group _is_ a capturing group, and remembers the captured data into '$1',
-   which is then included after 'embed/'. It captures 11 alphanumeric characters, including 
-   an underscore and a dash.   
-   */
+/* The first inner parentheses group is a non-capturing group, and is not 
+   included in '$1'.
+   The first group is in place to match stringdata after '\?' and before 'v=', 
+   if there is any.
+ • The second parentheses group _is_ a capturing group, and remembers the 
+   captured data into '$1', which is then included after 'embed/'. It captures 
+   11 alphanumeric characters, including an underscore and a dash. */
    
    embedFrame.src = embedFrame.src + ('?showinfo=0&autoplay=' + GM_getValue('autoplay','1') + '&vq=' + GM_getValue('video_quality','default'));
-   /* GM_|getValue here has two parameter values: 
+   /* GM_getValue here has two parameter values: 
       get value from storage, if none exists, uses second one */
    
    embedFrame.style = "width: 100%; height: 100%;";
