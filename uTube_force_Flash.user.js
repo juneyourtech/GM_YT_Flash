@@ -5,13 +5,14 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.3.4.1
+// @version       0.3.4.2
 // @encoding      utf-8
 // @include       *.youtube.com/watch*
 // @grant         GM_addStyle
 // @grant         GM_getValue
 // @grant         GM_setValue
 // @grant         GM_registerMenuCommand
+// @run-at        document-end
 // ==/UserScript==
 // Notes:
 //   * is a wildcard character
