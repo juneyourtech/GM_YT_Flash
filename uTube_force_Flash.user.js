@@ -5,7 +5,7 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.3.4
+// @version       0.3.4.1
 // @encoding      utf-8
 // @include       *.youtube.com/watch*
 // @grant         GM_addStyle
@@ -36,27 +36,27 @@ GM_registerMenuCommand('Autoplay OFF', autoplay_off);
 
 function vid_quality_small() {
    GM_setValue("video_quality", "small");
-   }; //240p
+   }; /* 240p */
 
 function vid_quality_medium() {
    GM_setValue("video_quality", "medium");
-   }; //360p
+   }; /* 360p */
 
 function vid_quality_large() {
    GM_setValue("video_quality", "large");
-   }; //480p
+   }; /* 480p */
 
 function vid_quality_hd() {
    GM_setValue("video_quality", "hd720");
-   }; //HD/720p
+   }; /* HD/720p */
 
 function vid_quality_fullhd() {
    GM_setValue("video_quality", "hd1080");
-   }; //FullHD/1080p
+   }; /* FullHD/1080p */
 
 function vid_quality_highres() {
    GM_setValue("video_quality", "highres");
-   }; //High resolution / greater than 1080p
+   }; /* High resolution | greater than 1080p */
 
 function vid_quality_default() {
    GM_setValue("video_quality", "default");
@@ -82,19 +82,19 @@ window.setTimeout(function() {
    */
    
    embedFrame.src = embedFrame.src + ('?showinfo=0&autoplay=' + GM_getValue('autoplay','1') + '&vq=' + GM_getValue('video_quality','default'));
-   //GM_|getValue here has two parameter values: 
-   //get value from storage, if none exists, uses second one
+   /* GM_|getValue here has two parameter values: 
+      get value from storage, if none exists, uses second one */
    
    embedFrame.style = "width: 100%; height: 100%;";
    var player = document.getElementById("player-api");
    
-   // grab the current dimensions of the player
+   /* grab the current dimensions of the player */
    var wid = player.clientWidth;
    var hei = player.clientHeight;
    
    player.innerHTML = "";
    
-   // set the embedded player's dimensions to proper size
+   /* set the embedded player's dimensions to proper size */
    embedFrame.style.height=hei+'px';
    embedFrame.style.width=wid+'px';
    
@@ -102,9 +102,10 @@ window.setTimeout(function() {
    unsafeWindow.spf.dispose();
 },
 1000);
+
 /* Apparently, setTimeout sets a delay until the function loads.
    1000 = 1 second
    3000 = 3 seconds, etc. */
 
-//29.07.2017: disable static in player area (somewhat resource-intensive)
+/* 29.07.2017: disable static in player area (somewhat resource-intensive) */
 GM_addStyle("DIV.ytp-error CANVAS.ytp-tv-static {display:none;}");
