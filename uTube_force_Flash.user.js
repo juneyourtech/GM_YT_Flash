@@ -5,7 +5,7 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.3.4.4
+// @version       0.3.5
 // @encoding      utf-8
 // @homepage      https://github.com/juneyourtech/GM_YT_Flash
 // @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
@@ -74,6 +74,11 @@ function autoplay_off() {
    GM_setValue("autoplay", "0");
    };
 
+var v_autoplay = GM_getValue('autoplay','1');
+var v_video_quality = GM_getValue('video_quality','default');
+/* GM_getValue here has two parameter values: 
+   get value from storage, if none exists, uses second one */
+
 window.setTimeout(function() {
    var embedFrame = document.createElement("iframe");
    
@@ -86,9 +91,7 @@ window.setTimeout(function() {
    captured data into '$1', which is then included after 'embed/'. It captures 
    11 alphanumeric characters, including an underscore and a dash. */
    
-   embedFrame.src = embedFrame.src + ('?showinfo=0&autoplay=' + GM_getValue('autoplay','1') + '&vq=' + GM_getValue('video_quality','default'));
-   /* GM_getValue here has two parameter values: 
-      get value from storage, if none exists, uses second one */
+   embedFrame.src = embedFrame.src + ('?showinfo=0&autoplay=' + v_autoplay + '&vq=' + v_video_quality);
    
    embedFrame.style = "width: 100%; height: 100%;";
    var player = document.getElementById("player-api");
@@ -107,8 +110,7 @@ window.setTimeout(function() {
    unsafeWindow.spf.dispose();
 },
 1000);
-
-/* Apparently, setTimeout sets a delay until the function loads.
+/* setTimeout sets a delay until the function loads.
    1000 = 1 second
    3000 = 3 seconds, etc. */
 
