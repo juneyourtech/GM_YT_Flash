@@ -18,8 +18,19 @@ With this userscript, YouTube should remain accessible to more people.
 
    * Mozilla Firefox or another Gecko-based browser, including SeaMonkey, GNU IceCat, and Pale Moon.
    * Greasemonkey extension. Although this userscript might work on non-Gecko browsers with a similar extension, then I do not test with these.
-   * HTML5 must be switched off.
-
+   * HTML5 must be switched off in about:config.
+   
+   Set:
+   
+    · media.mp4.enabled to false
+    · media.autoplay.enabled to false
+    · media.webm.enabled to false 
+   
+   Optional:
+   
+    · media.ogg.enabled to false
+    · media.wave.enabled to false
+   
    Other possible extensions that may be of use:
    * YouTube Flash Player (version 1.8.0)
 
@@ -32,6 +43,7 @@ With this userscript, YouTube should remain accessible to more people.
    * This userscript can be buggy.
    * It might conflict with the Flashblock extension, and/or those that are involved with YouTube, except YouTube Flash Player or a similar extension.
    * The Flash-based embed does not automatically advance from one playlist item to another. This is a known issue.
+   * Because the userscript creates an embed, some YouTube videos won't play, as those are restricted from playing within embeds by the channel or copyright owner.
 
    Do consider, that the code provided in this userscript was always meant as a stopgap measure.
 
