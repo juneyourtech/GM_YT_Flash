@@ -41,6 +41,7 @@ With this userscript, YouTube should remain accessible to more people.
 # 2. Errata
 
    * This userscript can be buggy.
+   * If the Flash-based player does not load outright, reload the page. You might need to do this every now and then.
    * It might conflict with the Flashblock extension, and/or those that are involved with YouTube, except YouTube Flash Player or a similar extension.
    * The Flash-based embed does not automatically advance from one playlist item to another. This is a known issue.
    * Because the userscript creates an embed, some YouTube videos won't play, as those are restricted from playing within embeds by the channel or copyright owner.
