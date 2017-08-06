@@ -8,11 +8,19 @@ Despite that, the Flash-based player is more stable and reliable in Firefox due 
 With this userscript, YouTube should remain accessible to more people.
 
 # Contents
+0. Installation
 1. Requirements
 2. Errata
 3. Acknowledgements
 4. Legal
 
+# 0. Installation
+   * You must already to have GreaseMonkey installed in Firefox.
+   
+     To install, browse to 
+     https://github.com/juneyourtech/GM_YT_Flash/blob/master/uTube_force_Flash.user.js
+     
+     There, click on the Raw link/button. Further requirments are below, and should not be difficult.
 
 # 1. Requirements
 
@@ -20,7 +28,7 @@ With this userscript, YouTube should remain accessible to more people.
    * Greasemonkey extension. Although this userscript might work on non-Gecko browsers with a similar extension, then I do not test with these.
    * HTML5 must be switched off in about:config —
    
-   Set:
+   Toggle by doubleclicking:
    
     · media.mp4.enabled to false
     · media.autoplay.enabled to false
