@@ -5,7 +5,7 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.4.0
+// @version       0.4.1
 // @encoding      utf-8
 // @homepage      https://github.com/juneyourtech/GM_YT_Flash
 // @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
@@ -88,9 +88,9 @@ function playlist_off() {
 
 var v_autoplay = GM_getValue('autoplay','1');
 var v_video_quality = GM_getValue('video_quality','default');
-var v_playlist = GM_getValue('playlist_state','off');
+var v_playlist = GM_getValue('playlist_state','on');
 /* GM_getValue here has two parameter values: 
-   get value from storage, if none exists, uses second one */
+   get value from storage; if none exists, use second one as default. */
 
 window.setTimeout(function() {
    var embedFrame = document.createElement("iframe");
