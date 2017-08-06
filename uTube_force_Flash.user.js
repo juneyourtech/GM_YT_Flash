@@ -5,7 +5,7 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.3.5
+// @version       0.4.0
 // @encoding      utf-8
 // @homepage      https://github.com/juneyourtech/GM_YT_Flash
 // @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
@@ -37,6 +37,8 @@ GM_registerMenuCommand('High Res', vid_quality_highres);
 GM_registerMenuCommand('Default quality', vid_quality_default);
 GM_registerMenuCommand('Autoplay ON', autoplay_on);
 GM_registerMenuCommand('Autoplay OFF', autoplay_off);
+GM_registerMenuCommand('Playlist ACTIVE', playlist_on);
+GM_registerMenuCommand('Playlist INACTIVE', playlist_off);
 
 function vid_quality_small() {
    GM_setValue("video_quality", "small");
@@ -74,8 +76,19 @@ function autoplay_off() {
    GM_setValue("autoplay", "0");
    };
 
+function playlist_on() {
+   GM_setValue("playlist_state", "on");
+   autoplay_on();
+   };
+
+function playlist_off() {
+   GM_setValue("playlist_state", "off");
+   autoplay_off();
+   };
+
 var v_autoplay = GM_getValue('autoplay','1');
 var v_video_quality = GM_getValue('video_quality','default');
+var v_playlist = GM_getValue('playlist_state','off');
 /* GM_getValue here has two parameter values: 
    get value from storage, if none exists, uses second one */
 
@@ -113,6 +126,54 @@ window.setTimeout(function() {
 /* setTimeout sets a delay until the function loads.
    1000 = 1 second
    3000 = 3 seconds, etc. */
+
+/* 06.08.2017 */
+function notice(message) {
+   var divver = document.createElement("div");
+   divver.style = 'display:block; width:100%; margin-right:1px; background-color:#1A1A1A; font-size:8pt; color:#B8B8B8;';
+   divver.innerHTML = message;
+   
+   var appender = document.getElementById('watch7-speedyg-area');
+   appender.innerHTML = "";
+   appender.appendChild(divver);
+   };
+
+function jump_to_next() {
+   /* get next video's URL */
+   var nextvid = document.getElementsByClassName('currently-playing')[0].nextElementSibling.getElementsByTagName('a')[0].getAttribute('href');
+
+   /* msg here */
+   notice('Moving to next playlist item in about 10 seconds from now...');
+   
+   window.setTimeout(function() {
+      window.location.href = nextvid;
+      },10000);
+   };
+
+function playlist_active() {
+   /* playlist URL with video screen contains 'index'; search for that */
+   var index_in_playlist = new RegExp(/index/);
+   if (window.location.search.match(index_in_playlist)) {
+      var flash_variables = document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByTagName('embed')[0].getAttribute('flashvars');
+      var video_length = flash_variables.replace(/(?:.*)length_seconds=(\d+).*/, "$1");
+      
+      window.setTimeout(function() {jump_to_next();
+      },(video_length * 1000)); //1000 = 1 sec; 1000 x no. of seconds
+      };
+   };
+
+window.setTimeout(function() {
+   var index_in_playlist = new RegExp(/index/);
+   if (window.location.search.match(index_in_playlist)) {
+      //Checks if playlist is active or not.
+      //Double equals are mandatory here.
+      if (v_playlist == 'on') {playlist_active();}
+      else if (v_playlist == 'off') {return false;}
+      };
+   },7000);
+/* The original 3-second delay is not enough, beacause the function then starts 
+   well before all the elements have been loaded. The seven-second delay gives 
+   some breathing time to gather all the information from DOM. */
 
 /* 29.07.2017: disable static in player area (somewhat resource-intensive) */
 GM_addStyle("DIV.ytp-error CANVAS.ytp-tv-static {display:none;}");
