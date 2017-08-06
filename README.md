@@ -21,6 +21,12 @@ With this userscript, YouTube should remain accessible to more people.
      https://github.com/juneyourtech/GM_YT_Flash/blob/master/uTube_force_Flash.user.js
      
      There, click on the Raw link/button. Further requirments are below, and should not be difficult.
+     
+     # 0.1 Menus and settings
+     
+     Settings can be changed through the User Script Commands submenu in the drop-down menu of the Greasemonkey toolbar button.
+     
+     Settings include video quality, Autoplay ON/OFF (video autostart), Playlist ACTIVE/INACTIVE. Playlist settings affect autoplay. The settings are stored in a separate Greasemonkey-related database file, and survive between sessions and profile cleanups. Settings take effect after reloading a video page, or browsing to a new video.
 
 # 1. Requirements
 
