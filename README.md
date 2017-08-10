@@ -59,8 +59,8 @@ With this userscript, YouTube should remain accessible to more people.
    * If the Flash-based player does not load outright, reload the page. You might need to do this every now and then.
    * It might conflict with the Flashblock extension, and/or those that are involved with YouTube, except YouTube Flash Player or a similar extension.
    * As of 06.08.2017, the playlist items now automatically advance from one to another in dark-coloured playlists. These should include all user-created playlists. This does not work in randomised playlists with YouTube's Autoplay function. That's still a known issue.
-   * Because the userscript creates an embed, some YouTube videos won't play, as those are restricted by the channel or copyright owner from playing from within embeds.
-   * Embeds outside YouTube video watching pages (other sites that use YouTube embeds) do not show, as the userscript is currently limited only to certain URLs.
+   * Because the userscript creates an embed, some YouTube videos won't play, as those are restricted by the channel or copyright owner from playing from within embeds. This includes videos administered by Vevo.
+   * Embeds outside YouTube video watching pages (other sites that use YouTube embeds) do not show, as the userscript is currently limited only to certain URLs. Naturally, embeds should invoke the Flash-based player anyway.
 
    Do consider, that the code provided in this userscript was always meant as a stopgap measure.
 
@@ -70,4 +70,4 @@ With this userscript, YouTube should remain accessible to more people.
 
 # 4. Legal
 
-   Flash is a registered trademark of Adobe. YouTube is a registered trademark of Alphabet. No copyright infringement (if any) is intended. This userscript has not been designed to block advertisements.
+   Flash is a registered trademark of Adobe. YouTube is a registered trademark of Alphabet. Vevo is a registered trademark of Vevo, LLC. No copyright infringement (if any) is intended. This userscript has not been designed to block advertisements.
