@@ -5,7 +5,7 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.4.1.2
+// @version       0.4.2
 // @encoding      utf-8
 // @homepage      https://github.com/juneyourtech/GM_YT_Flash
 // @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
@@ -102,7 +102,8 @@ window.setTimeout(function() {
    if there is any.
  • The second parentheses group _is_ a capturing group, and remembers the 
    captured data into '$1', which is then included after 'embed/'. It captures 
-   11 alphanumeric characters, including an underscore and a dash. */
+   11 alphanumeric characters, including an underscore and a dash.
+ • This method cannot be used for a simpe regexp match. */
    
    embedFrame.src = embedFrame.src + ('?showinfo=0&autoplay=' + v_autoplay + '&vq=' + v_video_quality);
    
@@ -112,14 +113,21 @@ window.setTimeout(function() {
    /* grab the current dimensions of the player */
    var wid = player.clientWidth;
    var hei = player.clientHeight;
-   
+
+/* Deletes content previously inside #player-api. 
+   It's probably the most contentious part of the code, 
+   and might be responsible for the 90% CPU use (single-core, 1.46 GHz). 
+   Yet not removing it causes even higher CPU use. */
    player.innerHTML = "";
    
    /* set the embedded player's dimensions to proper size */
    embedFrame.style.height=hei+'px';
    embedFrame.style.width=wid+'px';
    
+/* Replacement code; contains the combined contents of the embedFrame variable. */
    player.appendChild(embedFrame);
+
+/* Disables SPF (per Alexander Nartov). */
    unsafeWindow.spf.dispose();
 },
 1000);
@@ -158,7 +166,7 @@ function playlist_active() {
       var video_length = flash_variables.replace(/(?:.*)length_seconds=(\d+).*/, "$1");
       
       window.setTimeout(function() {jump_to_next();
-      },(video_length * 1000)); //1000 = 1 sec; 1000 x no. of seconds
+      },((video_length * 1000) + 10000)); /* 1000 = 1 sec; 1000 x no. of seconds. +10 seconds to give some leeway. */
       };
    };
 
