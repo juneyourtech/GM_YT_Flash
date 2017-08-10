@@ -5,7 +5,7 @@
 // @author        JuneYourTech | github.com/juneyourtech | and contributors
 // @updateURL     https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
 // @downloadURL   https://raw.githubusercontent.com/juneyourtech/GM_YT_Flash/master/uTube_force_Flash.user.js
-// @version       0.4.2
+// @version       0.4.2.1
 // @encoding      utf-8
 // @homepage      https://github.com/juneyourtech/GM_YT_Flash
 // @supportURL    https://github.com/juneyourtech/GM_YT_Flash/issues
@@ -151,7 +151,7 @@ function jump_to_next() {
    var nextvid = document.getElementsByClassName('currently-playing')[0].nextElementSibling.getElementsByTagName('a')[0].getAttribute('href');
 
    /* msg here */
-   notice('Moving to next playlist within the next 10 seconds from now...');
+   notice('Moving to next playlist item within 10 seconds from now...');
    
    window.setTimeout(function() {
       window.location.href = nextvid;
